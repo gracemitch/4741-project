@@ -12,14 +12,34 @@ To avhieve our goal, we will use data from two time series datasets. The first d
 
 All data from December 8th and 9th was omitted due to the big amount of missing values in weather data. Another problem we encountered when cleaning up the data was that weather data was collected more frequently than one hour and was not “on the hour” for every day. The number of data points collected was inconsistent for each day, as the weather data was not always collected at the same time, or the same number of times every day. As a workaround, we decided to use data points collected that were nearest to “on the hour” (i.e. 12:51, 1:51, … 11:51) for each day. We think this problem will not cause a big affect on prediction accuracy because generally weather does not change in a a few minutes. Because of inconsistent time interval, a total of 12 data points were missing in the weather data, so 12 additional points were randomly duplicated. For each missing weather data point, the values were interpolated between previous and successive moments in time. Generally, many data points for precipitation and wind speed were missing, but this only occurred in approximately ¼ of the data set.
 
+At first look, we can see that some features have a stronger linear relationship with electricity demand than other features, and they match with our common sense.
+
 # Preliminary Processing
 
 All features vectors were standardized by subtracting column mean and dividing them by column standard deviation. The output sets (electricity demands) were standardized in the same way. Then, data was randomly divided into two sets, with 80% of it put into the training set and 20% put into the test set.
 
-We then trianed a preliminary model for each type of building. [Alex please describe the model] During the process, we found out that Dew Point Temperature and Relative Humidity are linearly dependent (and theoretically they should be), so we had to drop me. After testing, we saw that Dew Point Temperature is more predictive, so Relative Humidity will be dropped.
+We then trianed a preliminary model for each type of building. During the process, we found out that Dew Point Temperature and Relative Humidity are linearly dependent (and theoretically they should be), so we had to drop me. After testing, we saw that Dew Point Temperature is more predictive, so Relative Humidity will be dropped.
+
+x_1 = dewtemp, x_2 = drytemp, x_3 = precip, x_4 = wind_speed, x_5 = offset(1)
 
 The models are:
 
-For courthourse: $y = x$
+w_courthourse = [ -0.385981; 0.725286; 0.0630616; 0.054005; -0.0228609]
 
-In the weeks to come, we will try various techniques taught in class, including regularization, to improve the model. We will also add/drop features as we see appropriate. For now, we have four models, one for each type of building. As we improve the models, we will see if they are similar, or very diffierent. If they are similar, we will make one model to predict electricity demand in all buildings.
+training set error = 0.813916, test set error = 0.845572
+
+w_office =  [-0.319275; 0.944108; 0.044558; 0.0704494; 0.0143133], average square error = 0.845572
+
+training set error = 0.581667, test set error = 0.578047
+
+w_school1 = [-0.212904; 0.699976; 0.055701; 0.0871717; -0.0248634]
+
+training set error = 0.669492, test set error = 0.713246
+
+w_school2 = [-0.184379; 0.604795; 0.0309144; 0.0843887; -0.0327653]
+
+training set error = 0.746071, test set error = 0.803748
+
+The models generally perform well. However, we must notice that, although errors look small, they are actually not that small because electricity demands are mostly in the interval of [-1, 3]. We believe the models have potentials to be improved. The preliminary models of the four types of buidings are quite different from each other, so for now we think it is necessary to have one model for each type of building.
+
+In the weeks to come, we will try various techniques taught in class, including regularization, to improve the model. We will also add/drop features as we see appropriate. For now, we have four models, one for each type of building. As we improve the models, we will see if they become similar, or very diffierent. If they are similar, we will make one model to predict electricity demand in all buildings.
