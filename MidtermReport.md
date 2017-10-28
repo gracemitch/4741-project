@@ -12,7 +12,9 @@ To avhieve our goal, we will use data from two time series datasets. The first d
 
 All data from December 8th and 9th was omitted due to the big amount of missing values in weather data. Another problem we encountered when cleaning up the data was that weather data was collected more frequently than one hour and was not “on the hour” for every day. The number of data points collected was inconsistent for each day, as the weather data was not always collected at the same time, or the same number of times every day. As a workaround, we decided to use data points collected that were nearest to “on the hour” (i.e. 12:51, 1:51, … 11:51) for each day. We think this problem will not cause a big affect on prediction accuracy because generally weather does not change in a a few minutes. Because of inconsistent time interval, a total of 12 data points were missing in the weather data, so 12 additional points were randomly duplicated. For each missing weather data point, the values were interpolated between previous and successive moments in time. Generally, many data points for precipitation and wind speed were missing, but this only occurred in approximately ¼ of the data set.
 
-At first look, we can see that some features have a stronger linear relationship with electricity demand than other features, and they match with our common sense.
+At first look, we can see that some features have a stronger linear relationship with electricity demand than other features, which correspond with our common sense. Here are a few examples:
+
+![Image of Yaktocat](https://raw.githubusercontent.com/gracemitch/4741-project/master/dewtemp.jpg)
 
 # Preliminary Processing
 
