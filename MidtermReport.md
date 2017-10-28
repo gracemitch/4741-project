@@ -14,7 +14,9 @@ All data from December 8th and 9th was omitted due to the big amount of missing 
 
 At first look, we can see that some features have a stronger linear relationship with electricity demand than other features, which correspond with our common sense. Here are a few examples:
 
-![Image of Yaktocat](https://raw.githubusercontent.com/gracemitch/4741-project/master/dewtemp.jpg)
+Basically, new point temperature represent humidity and dry temperature represent the "temperature" that we talk about in the daily life. We anticipate that temperature and humidity are the most important factors influencing eletricity demand. In the scatter graphs below, we can see that as temperature and humidity increase, electricity demand indeed tends to increase.
+![Dew Point Temperature](https://raw.githubusercontent.com/gracemitch/4741-project/master/dewtemp.jpg)
+![Dry Temperature](https://raw.githubusercontent.com/gracemitch/4741-project/master/drytemp.jpg)
 
 # Preliminary Processing
 
