@@ -18,6 +18,9 @@ Basically, new point temperature represent humidity and dry temperature represen
 ![Dew Point Temperature](https://raw.githubusercontent.com/gracemitch/4741-project/master/dewtemp.jpg)
 ![Dry Temperature](https://raw.githubusercontent.com/gracemitch/4741-project/master/drytemp.jpg)
 
+To the contrary, we do not think wind speed is strongly related to electricity demand. The scatter polt below does not show a linear relationship between them, either. In fact, because for the most time wind speed is close to 0, it is not very meaningful to study the relationship between wind speed and electricity demand based on the data we have.
+![Wind Speed](https://raw.githubusercontent.com/gracemitch/4741-project/master/wind.jpg)
+
 # Preliminary Processing
 
 All features vectors were standardized by subtracting column mean and dividing them by column standard deviation. The output sets (electricity demands) were standardized in the same way. Then, data was randomly divided into two sets, with 80% of it put into the training set and 20% put into the test set.
