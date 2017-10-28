@@ -18,4 +18,8 @@ All features vectors were standardized by subtracting column mean and dividing t
 
 We then trianed a preliminary model for each type of building. [Alex please describe the model] During the process, we found out that Dew Point Temperature and Relative Humidity are linearly dependent (and theoretically they should be), so we had to drop me. After testing, we saw that Dew Point Temperature is more predictive, so Relative Humidity will be dropped.
 
-In the weeks to come, we will try various techniques taught in class, including regularization, to improve the model. We will also add/drop features as we see appropriate.
+The models are:
+
+For courthourse: $y = x$
+
+In the weeks to come, we will try various techniques taught in class, including regularization, to improve the model. We will also add/drop features as we see appropriate. For now, we have four models, one for each type of building. As we improve the models, we will see if they are similar, or very diffierent. If they are similar, we will make one model to predict electricity demand in all buildings.
